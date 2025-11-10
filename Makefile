@@ -1,4 +1,4 @@
-.PHONY: build run test clean
+.PHONY: build run test clean benchmark
 
 build:
 	go build -o bin/server cmd/server/main.go
@@ -15,3 +15,6 @@ clean:
 deps:
 	go mod download
 	go mod tidy
+
+benchmark:
+	go test -bench=. -benchmem ./...
